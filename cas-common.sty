@@ -136,7 +136,7 @@
      \seq_gput_right:Nn \g_stm_title_seq
       {
         \keys_set:nn { stm / title } { #1 }
-%        \msg_term:n { MODE:~\l_stm_title_mode_tl ~ ~ [#2]}
+%        \iow_term:n { MODE:~\l_stm_title_mode_tl ~ ~ [#2]}
         \par \vskip \l_stm_title_before_dim
         \l_stm_title_align_tl
         \l_stm_title_size_tl
@@ -460,7 +460,7 @@
    { \int_set:Nn \l_tmpa_int { 0 }
      \clist_map_inline:nn { #1 }
       {
-%        \msg_term:n { ##1 .. [\cs:w X@##1:\cs_end:] }
+%        \iow_term:n { ##1 .. [\cs:w X@##1:\cs_end:] }
         \cs_if_free:cTF { X@##1: } 
           { \csdef{X@##1:}{0} }
           {
@@ -482,7 +482,7 @@
    {
      \tl_if_head_eq_catcode:nNTF { #1 } a
        {
-         \msg_term:n { [TNOTE:~alpha] }%
+         \iow_term:n { [TNOTE:~alpha] }%
          \seq_gput_right:Nn \g_stm_tnote_seq
            { \int_incr:N \g_stm_tnote_int
              \str_set:Nx \@currentlabel { \int_use:N \g_stm_tnote_int }
@@ -499,7 +499,7 @@
             }
           }
         {
-          \msg_term:n { [TNOTE:~Number] }
+          \iow_term:n { [TNOTE:~Number] }
           \seq_gput_right:Nn \g_stm_tnote_seq
           {
             \int_set:Nn \l_tmpa_int { #1 }
@@ -540,7 +540,7 @@
 {
   \tl_if_head_eq_catcode:nNTF { #1 } a
   {
-    \msg_term:n { [FN:~alpha] }%
+    \iow_term:n { [FN:~alpha] }%
     \seq_gput_right:Nn \g_stm_fnote_seq
     { \int_incr:N \g_stm_fnote_int
       \str_set:Nx \@currentlabel { \int_use:N \g_stm_fnote_int }
@@ -550,7 +550,7 @@
     }
   }
   {
-    \msg_term:n { [FN:~Number] }
+    \iow_term:n { [FN:~Number] }
     \seq_gput_right:Nn \g_stm_fnote_seq
     {
       \int_set:Nn \l_tmpa_int { #1 }
@@ -569,7 +569,7 @@
 {
   \tl_if_head_eq_catcode:nNTF { #1 } a
   {
-    \msg_term:n { [COR:~alpha] }%
+    \iow_term:n { [COR:~alpha] }%
     \seq_gput_right:Nn \g_stm_cor_seq
     { \int_incr:N \g_stm_cor_int
       \str_set:Nx \@currentlabel { \int_use:N \g_stm_cor_int }
@@ -586,7 +586,7 @@
     }
   }
   {
-    \msg_term:n { [COR:~Number] }
+    \iow_term:n { [COR:~Number] }
     \seq_gput_right:Nn \g_stm_cor_seq
     {
       \int_set:Nn \l_tmpa_int { #1 }
@@ -896,13 +896,13 @@
          \tl_if_empty:NF \l_stm_au_prefix
             { \l_stm_au_prefix_tl \c_space_token } 
          \str_if_eq:VnTF \l_stm_au_style_tl  { chinese }
-            { %\msg_term:n {STYLE~T=\l_stm_au_style_tl........}
+            { %\iow_term:n {STYLE~T=\l_stm_au_style_tl........}
               \invparsename { #2 } 
               \textcolor{\l_stm_augroup_color_tl}{\surname}
               \no_break_space:
               \textcolor{\l_stm_augroup_color_tl !50}{\firstname}
             }
-            { %\msg_term:n {STYLE~F=\l_stm_au_style_tl........}  
+            { %\iow_term:n {STYLE~F=\l_stm_au_style_tl........}  
               \parsename { #2 } 
               \textcolor{\l_stm_augroup_color_tl !50}{\firstname} 
               \no_break_space:
@@ -1215,7 +1215,7 @@
      \seq_new:c {g_stm_aff\int_use:N \g_stm_augr_int _seq}
      \seq_new:c {g_stm_collab\int_use:N \g_stm_augr_int _seq}
      \seq_new:c {g_stm_clau\int_use:N \g_stm_augr_int _seq}
-     \msg_term:n { AUGR:~\int_use:N \g_stm_augr_int ... }
+     \iow_term:n { AUGR:~\int_use:N \g_stm_augr_int ... }
    } 
    {
      \seq_gput_right:Nn \g_stm_augr_seq
@@ -1247,7 +1247,7 @@
          \seq_use:cn { g_stm_aff\int_use:N \g_stm_aaugr_int _seq }
            { \par \smallskip }
          \par\vskip\l_stm_aff_after_dim
-         \msg_term:n { AAUGR:~\int_use:N \g_stm_aaugr_int ... }
+         \iow_term:n { AAUGR:~\int_use:N \g_stm_aaugr_int ... }
          \group_end:
 %
          \group_begin:
